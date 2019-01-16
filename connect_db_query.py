@@ -1,4 +1,12 @@
 #!/usr/bin/env python
+'''
+    File name: connect_db_query.py
+    Author: Rui Monteiro
+    Date created: 16/01/2019
+    Date last modified: 16/01/2019
+    Python Version: 3.6
+'''
+
 import os
 import cx_Oracle
 import json
