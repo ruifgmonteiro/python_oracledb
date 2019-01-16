@@ -5,7 +5,7 @@ import json
 import sys
 import time
 import csv
-
+from datetime import datetime
 
 class ConnectDB(object):
     """docstring for ConnectDB"""
@@ -20,11 +20,11 @@ class ConnectDB(object):
                 con = self.poolDB.acquire()
                 break
             except:
-                print("error acquiring connection")
+                print("Error acquiring connection!")
                 print(self.poolDB.opened)
                 time.sleep(4)
         if con is None:
-            print('ERRO! sem ligacoes na pool')
+            print('Error! No connections in the pool.')
             sys.exit(0)
         cur = con.cursor()
         cur.execute(query)
@@ -48,9 +48,10 @@ def main():
 
     # Example query.
     query = "select * from skulist_detail a where a.skulist = 13012"
+    queryTime = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     sess = ConnectDB(mypool)
-    sess.extractQuery(query, 'query_result.csv')
+    sess.extractQuery(query, 'query_result_' + format(queryTime) + '.csv')
 
     print("Done")
 
