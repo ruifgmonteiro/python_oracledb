@@ -1,0 +1,13 @@
+/* Access example file.*/
+{
+  "TST": {
+    "BD": {
+      "USER": "user",
+      "PASS": "pass",
+      "TNS": "tns",
+      "HOST": "example.tst.pt",
+      "PORT": "8000",
+      "SID": "TST"
+    }
+  }
+}
