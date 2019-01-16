@@ -40,6 +40,9 @@ class ConnectDB(object):
         self.poolDB.release(con)
 
 def main():
+
+    start = time.time()
+
     # Configure session credentials.
     crd = json.load( open('access.json') )['TST']['BD']
     dsn = cx_Oracle.makedsn(crd['HOST'], crd['PORT'], crd['SID'])
@@ -53,7 +56,9 @@ def main():
     sess = ConnectDB(mypool)
     sess.extractQuery(query, 'query_result_' + format(queryTime) + '.csv')
 
-    print("Done")
+    end = time.time()
+    elapsed_time = end - start
+    print("Finished in " + str(round(elapsed_time, 3)) + " seconds.")
 
 if __name__ == "__main__":
     main()
