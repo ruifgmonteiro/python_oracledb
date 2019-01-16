@@ -6,6 +6,7 @@ import sys
 import time
 import csv
 
+
 class ConnectDB(object):
     """docstring for ConnectDB"""
 
@@ -38,17 +39,21 @@ class ConnectDB(object):
         cur.close()
         self.poolDB.release(con)
 
-# Configure session credentials.
-crd = json.load( open('access.json') )['TST']['BD']
-dsn = cx_Oracle.makedsn(crd['HOST'], crd['PORT'], crd['SID'])
-mypool = cx_Oracle.SessionPool(user=crd['USER'], password=crd['PASS'], dsn=dsn, min=4, max=20, increment=2, threaded = True)
-os.environ["NLS_LANG"] = ".WE8ISO8859P1"
+def main():
+    # Configure session credentials.
+    crd = json.load( open('access.json') )['TST']['BD']
+    dsn = cx_Oracle.makedsn(crd['HOST'], crd['PORT'], crd['SID'])
+    mypool = cx_Oracle.SessionPool(user=crd['USER'], password=crd['PASS'], dsn=dsn, min=4, max=20, increment=2, threaded = True)
+    os.environ["NLS_LANG"] = ".WE8ISO8859P1"
 
-# Example query.
-query = "select * from skulist_detail a where a.skulist = 13012"
+    # Example query.
+    query = "select * from skulist_detail a where a.skulist = 13012"
 
-sess = ConnectDB(mypool)
-sess.extractQuery(query, 'query_result.csv')
+    sess = ConnectDB(mypool)
+    sess.extractQuery(query, 'query_result.csv')
 
-print("Done")
+    print("Done")
+
+if __name__ == "__main__":
+    main()
 
