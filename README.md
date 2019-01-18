@@ -1,7 +1,7 @@
 # Automate PL/SQL
 Python scripts to automate and increase efficiency in Oracle DB management.
 
-### Prerequisites
+## Prerequisites
 
 - Python 2.7/3.6
   - Libraries:
