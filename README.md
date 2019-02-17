@@ -10,9 +10,9 @@ Using Python to access Oracle Database.
 
 ## Authors
 
-* **Rui Monteiro** - [rfgm6](https://github.com/rfgm6)
+* **Rui Monteiro** - [ruifgmonteiro](https://github.com/ruifgmonteiro)
 
-See also the list of [contributors](https://github.com/rfgm6/automate_plsql/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/ruifgmonteiro/automate_plsql/graphs/contributors) who participated in this project.
 
 ## License
 
